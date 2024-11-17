@@ -1,0 +1,12 @@
+[package]
+name = "my-site"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+askama = "0.12.1"
+axum = "0.7.9"
+listenfd = "1.0.1"
+tokio = { version = "1.41.1", features = ["full"] }
+tower = { version = "0.5.1", features = ["util"] }
+tower-http = { version = "0.6.1", features = ["fs", "trace"] }

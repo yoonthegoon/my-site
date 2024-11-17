@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <meta name="description" content="{% block description %}{% endblock %}">
+
+    <meta property="og:title" content="{% block title %}My Site{% endblock %}">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:alt" content="">
+
+    <link rel="icon" href="/public/favicon.ico" sizes="any">
+    <link rel="icon" href="/public/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/public/icon.png">
+
+    <link rel="manifest" href="/public/site.webmanifest">
+    <meta name="theme-color" content="#fafafa">
+    <script src="https://unpkg.com/htmx.org@2.0.3"
+            integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
+            crossorigin="anonymous"></script>
+</head>
+
+<body hx-boost="true" hx-ext="preload">
+
+{% block header %}
+<header class="content bg-base-200">
+    <ul class="navbar flex justify-center" preload="mouseover">
+        <li class="btn btn-ghost mx-1 text-2xl"><a href="/">Home</a></li>
+        <li class="btn btn-ghost mx-1 text-2xl"><a href="/blog">Blog</a></li>
+        <li class="btn btn-ghost mx-1 text-2xl"><a href="/contact">Contact</a></li>
+    </ul>
+</header>
+{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+<main class="container mx-auto my-3">{% block content %}{% endblock %}</main>
+{% block footer %}
+<footer class="footer bg-base-200">
+    <div class="flex justify-center w-full">
+        <span>Copyright © 2024 Yunis Yilmaz</span>
+    </div>
+</footer>
+{% endblock %}
+<script src="https://unpkg.com/htmx-ext-preload@2.0.1/preload.js"></script>
+
+</body>
+
+</html>
