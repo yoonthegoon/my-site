@@ -2,12 +2,14 @@
 
 A fast, lightweight, and easy to deploy web application built with 
 [axum](https://github.com/tokio-rs/axum),
+[sqlite](https://github.com/sqlite/sqlite),
 [htmx](https://github.com/bigskysoftware/htmx),
 [tailwindcss](https://github.com/tailwindlabs/tailwindcss).
 
 ## Dependencies
 
 - cargo 1.82.0
+- sqlite 3.47.0
 
 ### dev
 
@@ -47,7 +49,7 @@ Assuming [tmux](https://github.com/tmux/tmux/wiki) is installed:
 
 ```shell
 tmux new-session -d -s dev "npx tailwindcss -i ./src/tailwind.css -o ./public/css/style.css --watch"
-tmux split-window -h "systemfd --no-pid -s http::3000 -- cargo watch -x run"
+tmux split-window -h "systemfd --no-pid -s http::3000 -- cargo watch -x 'run -F dev'"
 tmux attach -t dev
 ```
 
@@ -55,7 +57,7 @@ If not, run each line in a different terminal sessions:
 
 ```shell
 npx tailwindcss -i ./src/tailwind.css -o ./public/css/style.css --watch # session 1
-systemfd --no-pid -s http::3000 -- cargo watch -x run # session 2
+systemfd --no-pid -s http::3000 -- cargo watch -x 'run -F dev' # session 2
 ```
 
 [//]: # (### release)
