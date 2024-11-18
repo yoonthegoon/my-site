@@ -1,5 +1,5 @@
-use crate::blog::blog_routes;
-use crate::handlers::{index_handler, not_found_handler};
+use crate::blog::{blog_routes, post_detail_handler};
+use crate::handlers::index_handler;
 use axum::routing::get;
 use axum::Router;
 use tokio::net::TcpListener;
@@ -16,16 +16,15 @@ mod templates;
 
 #[tokio::main]
 async fn main() {
-    let app = get_app().await;
+    let app = routes().await;
     let listener = get_listener().await;
 
     println!("Listening on {}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.unwrap();
 }
 
-async fn get_app() -> Router {
+async fn routes() -> Router {
     let app = Router::new()
-        .fallback(not_found_handler)
         .route("/", get(index_handler))
         .nest("/blog", blog_routes());
 
@@ -42,7 +41,7 @@ async fn get_listener() -> TcpListener {
         match listenfd.take_tcp_listener(0).unwrap() {
             Some(listener) => {
                 listener.set_nonblocking(true).unwrap();
-                return TcpListener::from_std(listener).unwrap()
+                return TcpListener::from_std(listener).unwrap();
             }
             None => {}
         }

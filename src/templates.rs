@@ -6,10 +6,6 @@ use axum::response::{Html, IntoResponse, Response};
 #[template(path = "index.html")]
 pub struct IndexTemplate {}
 
-#[derive(Template)]
-#[template(path = "client error response codes/404.html")]
-pub struct NotFoundTemplate {}
-
 pub struct HtmlTemplate<T>(pub T);
 
 impl<T> IntoResponse for HtmlTemplate<T>

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}My Site{% endblock %}</title>
     <link rel="stylesheet" href="/public/css/style.css">
-    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="description" content="">
 
-    <meta property="og:title" content="{% block title %}My Site{% endblock %}">
+    <meta property="og:title" content="">
     <meta property="og:type" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
@@ -20,16 +20,15 @@
 
     <link rel="manifest" href="/public/site.webmanifest">
     <meta name="theme-color" content="#fafafa">
-    <script src="https://unpkg.com/htmx.org@2.0.3"
-            integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
-            crossorigin="anonymous"></script>
+    <script src="/public/js/htmx.min.js"></script>
+    {% block head %}{% endblock %}
 </head>
 
 <body hx-boost="true" hx-ext="preload">
 
 {% block header %}
 <header class="content bg-base-200">
-    <ul class="navbar flex justify-center" preload="mouseover">
+    <ul class="navbar flex justify-center" preload>
         <li class="btn btn-ghost mx-1 text-2xl"><a href="/">Home</a></li>
         <li class="btn btn-ghost mx-1 text-2xl"><a href="/blog">Blog</a></li>
         <li class="btn btn-ghost mx-1 text-2xl"><a href="/contact">Contact</a></li>
@@ -40,12 +39,12 @@
 <main class="container mx-auto my-3">{% block content %}{% endblock %}</main>
 {% block footer %}
 <footer class="footer bg-base-200">
-    <div class="flex justify-center w-full">
+    <div class="flex justify-center w-full my-3">
         <span>Copyright © 2024 Yunis Yilmaz</span>
     </div>
 </footer>
 {% endblock %}
-<script src="https://unpkg.com/htmx-ext-preload@2.0.1/preload.js"></script>
+<script src="/public/js/preload.js"></script>
 
 </body>
 

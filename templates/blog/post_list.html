@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="prefetch" href="/public/css/rainbow.min.css" as="style">
+<link rel="prefetch" href="/public/js/highlight.min.js" as="script">
+{% endblock %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<a href="/blog/slug" class="btn" role="button" preload>Check this out</a>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/public/css/rainbow.min.css">
+<script src="/public/js/highlight.min.js"></script>
+{% endblock %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block breadcrumbs %}
+<nav class="breadcrumbs bg-base-200" aria-label="breadcrumbs">
+    <ul class="mx-auto w-fit" preload>
+        <li><a href="/blog">Blog</a></li>
+        <li>{{ post.title }}</li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="prose mx-auto">
+    <h1>{{ post.title }}</h1>
+    <div>{{ post.content|safe }}</div>
+</div>
+<script>hljs.highlightAll();</script>
+<!--FIXME: the above script doesn't run when this page is HX-Boosted-->
+{% endblock %}
