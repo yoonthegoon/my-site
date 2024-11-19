@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="/public/css/rainbow.min.css">
-<script src="/public/js/highlight.min.js"></script>
+<link rel="stylesheet" href="/css/rainbow.min.css">
+<script src="/js/highlight.min.js"></script>
 {% endblock %}
 
 {% block title %}{{ post.title }}{% endblock %}
@@ -21,7 +21,7 @@
 {% block content %}
 <div class="prose mx-auto">
     <h1>{{ post.title }}</h1>
-    <div>{{ post.content|safe }}</div>
+    <div>{{ post.body|safe }}</div>
 </div>
 <script>hljs.highlightAll();</script>
 <!--FIXME: the above script doesn't run when this page is HX-Boosted-->

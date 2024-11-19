@@ -1,8 +1,9 @@
 mod handlers;
 mod models;
+mod schema;
 mod templates;
 
-pub use crate::blog::handlers::{post_detail_handler, post_list_handler};
+use crate::blog::handlers::{post_detail_handler, post_list_handler};
 use axum::routing::get;
 use axum::Router;
 

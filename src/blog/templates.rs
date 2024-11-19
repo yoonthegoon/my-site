@@ -1,5 +1,5 @@
 use crate::blog::models::Post;
-use askama::Template;
+use askama_axum::Template;
 
 #[derive(Template)]
 #[template(path = "blog/post_list.html")]

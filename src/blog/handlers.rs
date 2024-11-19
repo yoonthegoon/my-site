@@ -1,17 +1,15 @@
 use crate::blog::models::Post;
 use crate::blog::templates::{PostDetailTemplate, PostListTemplate};
-use crate::templates::HtmlTemplate;
 use axum::extract::Path;
-use axum::response::IntoResponse;
 
-pub async fn post_list_handler() -> impl IntoResponse {
-    let template = PostListTemplate {};
-    HtmlTemplate(template)
+pub async fn post_list_handler() -> PostListTemplate {
+    PostListTemplate {}
 }
 
-pub async fn post_detail_handler(Path(slug): Path<String>) -> impl IntoResponse {
+pub async fn post_detail_handler(Path(slug): Path<String>) -> PostDetailTemplate {
     let title = String::from("Inquit incepta");
-    let content = markdown::to_html("## Cura ter iam celebrabat relictis
+    let body = markdown::to_html(
+        "## Cura ter iam celebrabat relictis
 
 Lorem markdownum terrae, geras suppositosque sicut. Durum mundi **Latona
 felix**. Curva morte leti tulit vellem in est placido vultus es harum. Pelides
@@ -66,14 +64,17 @@ Potest poma inter summo nostroque perosa suberant nec Asbolos dixit nec primum
 correptus circuiere petis Venerem: Nile milite. Tenuique illis, positos quo
 oportuit videt Iuppiter subibat, et maius genetrix litore iuvenali. Ossaque
 quaeritis veterumque consuetas costas usus [color omnis](http://regnat.net/) ut,
-essem, dona in recondita heros.");
+essem, dona in recondita heros.",
+    );
 
-    let template = PostDetailTemplate {
+    PostDetailTemplate {
         post: Post {
             slug,
+            author: 0,
             title,
-            content,
+            body,
+            created_at: 0,
+            updated_at: 0,
         },
-    };
-    HtmlTemplate(template)
+    }
 }
