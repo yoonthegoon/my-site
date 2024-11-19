@@ -6,54 +6,28 @@ A fast, lightweight, and easy to deploy web application built with
 [htmx](https://github.com/bigskysoftware/htmx),
 [tailwindcss](https://github.com/tailwindlabs/tailwindcss).
 
-## Dependencies
-
-- cargo 1.82.0
-- sqlite 3.47.0
-
-### dev
-
-- node 18.20.3
-- npm 10.7.0
-
 ## Installation
 
 ```shell
-git clone https://github.com/yoonthegoon/my-site.git
-cd my-site
+curl https://github.com/yoonthegoon/my-site/install.sh | bash
 ```
 
-### dev
-
-```shell
-npm install
-cargo install --path .
-```
-
-### release
-
-```shell
-cargo build -r
-cp target/release/my-site /usr/local/bin
-```
+[//]: # (TODO: add install.sh)
 
 ## Usage
 
 ### dev
 
-Assuming [tmux](https://github.com/tmux/tmux/wiki) is installed:
-
 ```shell
-tmux new-session -d -s dev "npx tailwindcss -o ./public/css/style.css --watch"
-tmux split-window -h "cargo watch -x run"
-tmux attach -t dev
+npm run dev
 ```
 
-If not, run each line in a different terminal sessions:
+### release
 
 ```shell
-npx tailwindcss -o ./public/css/style.css --watch # session 1
-cargo watch -x run # session 2
+npm run reload
+npm run restart
+npm run start
+npm run status
+npm run stop
 ```
-
-[//]: # (### release)

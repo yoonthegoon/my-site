@@ -1,6 +1,5 @@
 use crate::blog::blog_routes;
 use askama_axum::Template;
-use axum::response::IntoResponse;
 use axum::routing::get;
 use axum::Router;
 use tokio::net::TcpListener;
