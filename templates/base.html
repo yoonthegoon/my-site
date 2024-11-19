@@ -27,24 +27,24 @@
 <body hx-boost="true" hx-ext="preload">
 
 {% block header %}
-<header class="content bg-base-200">
+<header class="content">
     <ul class="navbar flex justify-center" preload>
-        <li class="btn btn-ghost mx-1 text-2xl"><a href="/">Home</a></li>
-        <li class="btn btn-ghost mx-1 text-2xl"><a href="/blog">Blog</a></li>
-        <li class="btn btn-ghost mx-1 text-2xl"><a href="/contact">Contact</a></li>
+        <li class="btn mx-1 text-2xl"><a href="/">Home</a></li>
+        <li class="btn mx-1 text-2xl"><a href="/blog">Blog</a></li>
+        <li class="btn mx-1 text-2xl"><a href="/contact">Contact</a></li>
     </ul>
 </header>
 {% endblock %}
 {% block breadcrumbs %}{% endblock %}
 <main class="container mx-auto my-3">{% block content %}{% endblock %}</main>
 {% block footer %}
-<footer class="footer bg-base-200">
+<footer class="footer">
     <div class="flex justify-center w-full my-3">
         <span>Copyright © 2024 Yunis Yilmaz</span>
     </div>
 </footer>
 {% endblock %}
-<script src="/js/preload.js"></script>
+<script src="/js/preload.min.js"></script>
 
 </body>
 

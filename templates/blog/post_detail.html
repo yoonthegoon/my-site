@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="/css/rainbow.min.css">
+<link rel="stylesheet" href="/css/atom-one-dark.min.css">
 <script src="/js/highlight.min.js"></script>
 {% endblock %}
 
@@ -10,7 +10,7 @@
 {% block header %}{% endblock %}
 
 {% block breadcrumbs %}
-<nav class="breadcrumbs bg-base-200" aria-label="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumbs">
     <ul class="mx-auto w-fit" preload>
         <li><a href="/blog">Blog</a></li>
         <li>{{ post.title }}</li>
@@ -23,6 +23,32 @@
     <h1>{{ post.title }}</h1>
     <div>{{ post.body|safe }}</div>
 </div>
-<script>hljs.highlightAll();</script>
+<script>
+    function swapHead() {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/css/atom-one-dark.min.css';
+        document.head.appendChild(link);
+
+        const script = document.createElement('script');
+        script.src = '/js/highlight.min.js';
+        document.head.appendChild(script);
+        script.onload = highlight;
+    }
+
+    function highlight() {
+        hljs.highlightAll();
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                document.querySelectorAll('pre > code.hljs').forEach(function (el) {
+                    el.parentElement.style.backgroundColor = window.getComputedStyle(el).backgroundColor;
+                });
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', highlight);
+    document.addEventListener('htmx:afterSwap', swapHead);
+</script>
 <!--FIXME: the above script doesn't run when this page is HX-Boosted-->
 {% endblock %}
