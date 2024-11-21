@@ -1,20 +1,25 @@
 {% extends "base.html" %}
 
 {% block head %}
-<link rel="prefetch" href="/css/rainbow.min.css" as="style">
+<link rel="prefetch" href="/css/atom-one-dark.min.css" as="style">
 <link rel="prefetch" href="/js/highlight.min.js" as="script">
 {% endblock %}
 
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-<div preload>
-    <div class="card bg-primary-content w-96 shadow-xl">
-        <a class="card-body" href="/blog/inquit-incepta">
-            <h2 class="card-title">Inquit incepta</h2>
-            <p>Cura ter iam celebrabat relictis</p>
-            <p>Lorem markdownum terrae, geras suppositosque sicut.</p>
+<div class="grid grid-cols-3" preload>
+    {% let foo = [1] %}
+    {% for bar in foo %}
+    <div class="card w-96 shadow-xl bg-bg3 mx-auto mb-3">
+        <a class="card-body no-underline" href="/blog/inquit-incepta">
+            <div class="text-fg1">
+                <h2 class="card-title">Inquit incepta</h2>
+                <p>Cura ter iam celebrabat relictis</p>
+                <p>Lorem markdownum terrae, geras suppositosque sicut.</p>
+            </div>
         </a>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}

@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-bg1;
+        @apply text-fg1;
+    }
+
+    header, nav, footer {
+        @apply bg-bg2;
+        @apply text-fg1;
+    }
+
+    a {
+        @apply underline;
+    }
+
+    a:link {
+        @apply text-blue-500;
+    }
+
+    a:visited {
+        @apply text-magenta-500;
+    }
+
+    a:active {
+        @apply text-red-500;
+    }
+}
+
+@layer components {
+
+}

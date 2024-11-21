@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "tmux new-session -d 'npx tailwindcss -o ./public/css/style.css --watch' && tmux new-window 'cargo watch -x run' && tmux attach",
+    "dev": "tmux new-session -d 'npx tailwindcss -i ./src/main.css -o ./public/css/style.css --watch' && tmux new-window 'cargo watch -x run' && tmux attach",
     "reload": "sudo systemctl reload nginx",
     "restart": "sudo systemctl restart nginx",
     "start": "sudo systemctl start nginx",

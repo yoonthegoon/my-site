@@ -11,8 +11,8 @@ pub async fn post_detail_handler(Path(slug): Path<String>) -> PostDetailTemplate
     let body = markdown::to_html(
         "## Cura ter iam celebrabat relictis
 
-Lorem markdownum terrae, geras suppositosque sicut. Durum mundi **Latona
-felix**. Curva morte leti tulit vellem in est placido vultus es harum. Pelides
+Lorem markdownum terrae, geras suppositosque sicut. Durum mundi **Latona felix**.
+Curva morte leti tulit vellem in est placido vultus es harum. Pelides
 [nares](http://ubi.net/), leto mecum quae!
 
 > Unum levitas *positos recentibus quod* perque facie Olympi similemque nata
