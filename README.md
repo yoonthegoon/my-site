@@ -6,58 +6,49 @@ A fast, lightweight, and easy to deploy web application built with
 [htmx](https://github.com/bigskysoftware/htmx),
 [tailwindcss](https://github.com/tailwindlabs/tailwindcss).
 
-## Dependencies
-
-- cargo 1.82.0
-- sqlite 3.47.0
-
-### dev
-
-- node 18.20.3
-- npm 10.7.0
-
-### release
-
-- nginx 1.27.2
-
 ## Installation
 
+Run
+
 ```shell
-git clone https://github.com/yoonthegoon/my-site.git
-cd my-site
+curl https://github.com/yoonthegoon/my-site/install.sh | bash
 ```
+
+and select the prompted environment you require.
 
 ### dev
 
-```shell
-npm install
-cargo install --path .
-```
+You'll have to ensure you've got [tmux](https://github.com/tmux/tmux/wiki) installed.
+Instructions can be found [here](https://github.com/tmux/tmux/wiki/Installing).
 
 ### release
 
-```shell
-cargo build -r
-cp target/release/my-site /usr/local/bin
-```
+You'll have to ensure you've got [nginx](https://github.com/nginx/nginx) installed.
+Instructions can be found [here](https://github.com/nginx/nginx?tab=readme-ov-file#downloading-and-installing).
 
 ## Usage
 
 ### dev
 
-Assuming [tmux](https://github.com/tmux/tmux/wiki) is installed:
+Run
 
 ```shell
-tmux new-session -d -s dev "npx tailwindcss -i ./src/tailwind.css -o ./public/css/style.css --watch"
-tmux split-window -h "systemfd --no-pid -s http::3000 -- cargo watch -x 'run -F dev'"
-tmux attach -t dev
+npm run dev
 ```
 
-If not, run each line in a different terminal sessions:
+to run live server watchers for `tailwindcss` and `my-site`.
+Any changes to certain files will automatically restart either application, letting you rapidly iterate through changes.
+
+### release
+
+[//]: # (TODO: config nginx)
+
+After all the configuration changes have been made, you can run any of the following:
 
 ```shell
-npx tailwindcss -i ./src/tailwind.css -o ./public/css/style.css --watch # session 1
-systemfd --no-pid -s http::3000 -- cargo watch -x 'run -F dev' # session 2
+npm run reload
+npm run restart
+npm run start
+npm run status
+npm run stop
 ```
-
-[//]: # (### release)

@@ -5,47 +5,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="/public/css/style.css">
-    <meta name="description" content="{% block description %}{% endblock %}">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="description" content="">
 
-    <meta property="og:title" content="{% block title %}My Site{% endblock %}">
+    <meta property="og:title" content="">
     <meta property="og:type" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
     <meta property="og:image:alt" content="">
 
-    <link rel="icon" href="/public/favicon.ico" sizes="any">
-    <link rel="icon" href="/public/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/public/icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
 
-    <link rel="manifest" href="/public/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#fafafa">
-    <script src="https://unpkg.com/htmx.org@2.0.3"
-            integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
-            crossorigin="anonymous"></script>
+    <script src="/js/htmx.min.js"></script>
+    <script src="/js/head-support.min.js"></script>
+    {% block head %}{% endblock %}
 </head>
 
-<body hx-boost="true" hx-ext="preload">
+<body hx-boost="true" hx-ext="head-support, preload">
 
 {% block header %}
-<header class="content bg-base-200">
-    <ul class="navbar flex justify-center" preload="mouseover">
-        <li class="btn btn-ghost mx-1 text-2xl"><a href="/">Home</a></li>
-        <li class="btn btn-ghost mx-1 text-2xl"><a href="/blog">Blog</a></li>
-        <li class="btn btn-ghost mx-1 text-2xl"><a href="/contact">Contact</a></li>
+<header class="content">
+    <ul class="navbar flex justify-center" preload>
+        <li class="btn mx-1 text-2xl"><a class="no-underline" href="/"><span class="text-fg1">Home</span></a></li>
+        <li class="btn mx-1 text-2xl"><a class="no-underline" href="/blog"><span class="text-fg1">Blog</span></a></li>
+        <li class="btn mx-1 text-2xl"><a class="no-underline" href="/contact"><span class="text-fg1">Contact</span></a></li>
     </ul>
 </header>
 {% endblock %}
 {% block breadcrumbs %}{% endblock %}
 <main class="container mx-auto my-3">{% block content %}{% endblock %}</main>
 {% block footer %}
-<footer class="footer bg-base-200">
-    <div class="flex justify-center w-full">
+<footer class="footer">
+    <div class="flex justify-center w-full my-3">
         <span>Copyright © 2024 Yunis Yilmaz</span>
     </div>
 </footer>
 {% endblock %}
-<script src="https://unpkg.com/htmx-ext-preload@2.0.1/preload.js"></script>
+<script src="/js/preload.min.js"></script>
 
 </body>
 
